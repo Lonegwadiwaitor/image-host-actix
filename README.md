@@ -16,3 +16,37 @@ Fill out the config with all your desired settings, add your SSL certificate fil
 
 ## Do you have a ShareX config for it?
 I do!
+
+```
+{
+  "Version": "15.0.0",
+  "Name": "Image (Public)",
+  "DestinationType": "ImageUploader, FileUploader",
+  "RequestMethod": "POST",
+  "RequestURL": "http://127.0.0.1/upload",
+  "Headers": {
+    "token": "your_config_token",
+    "private": "false"
+  },
+  "Body": "MultipartFormData",
+  "FileFormName": "form",
+  "URL": "http://127.0.0.1/{filename}"
+}
+```
+
+```
+{
+  "Version": "15.0.0",
+  "Name": "Image (Private)",
+  "DestinationType": "ImageUploader, FileUploader",
+  "RequestMethod": "POST",
+  "RequestURL": "http://127.0.0.1/upload",
+  "Headers": {
+    "token": "your_config_token",
+    "private": "true"
+  },
+  "Body": "MultipartFormData",
+  "FileFormName": "form",
+  "URL": "{json:files[0].url}"
+}
+```
