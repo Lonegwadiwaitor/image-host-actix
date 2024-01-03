@@ -4,11 +4,7 @@ use brotli::{BrotliCompress, enc::BrotliEncoderParams, BrotliDecompress};
 
 #[inline]
 fn pick_quality_level(size: usize) -> i32 {
-    if size <= 5*1024*1024 /* 5 mb */ {
-        return 10;
-    }
-
-    9
+    return 9 + (size <= 5*1024*1024) as i32;
 }
 
 pub fn compress(input: Vec<u8>) -> Result<Vec<u8>, Box<dyn Error>>
